@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Time Tracking</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'main_app/css/index.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="/">Time Tracking</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            {% if login %}
+            <li class="nav-item">
+              <a class="nav-link navbar-link" href="/home/">Home</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link navbar-link" href="/signin/">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link navbar-link" href="/signup/">Sign Up</a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle dropdown-toggle-no-caret" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                {% if current_language == 'eng' %}
+                <img src="{% static 'main_app/img/lang/gb.svg' %}" alt="eng" class="nav-flag">
+                {% elif current_language == 'ukr' %}
+                <img src="{% static 'main_app/img/lang/ua.svg' %}" alt="ukr" class="nav-flag">
+                {% endif %}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item {% if current_language == 'en' %}active{% endif %}" href="#" data-lang="en">
+                  <img src="{% static 'main_app/img/lang/gb.svg' %}" alt="eng" class="nav-flag">
+                </a>
+                <a class="dropdown-item {% if current_language == 'uk' %}active{% endif %}" href="#" data-lang="uk">
+                  <img src="{% static 'main_app/img/lang/ua.svg' %}" alt="ukr" class="nav-flag">
+                </a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container mt-5">
+        <h1 class="text-center mb-4">Welcome to the Time Tracking web app</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Track Your Time</h2>
+            <p>With this web app, you can easily track your time spent on a broad range of activities.</p>
+            <a class="btn btn-primary" href="#">Learn More</a>
+          </div>
+          <div class="col-md-6">
+            <h2>View Advanced Statistics</h2>
+            <p>Track your activities in a detail - check meaningful insights on your pastime or daily routine.</p>
+            <a class="btn btn-primary" href="#">Learn More</a>
+          </div>
+        </div>
+      </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDUCtfs/kW8Bi3UIONt0p"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+
+  </body>
+</html>
